@@ -10,5 +10,7 @@
 
     <!-- My Colors -->
     <color name="my_beige">#fff1ea</color>
+    <color name="btn">#BA5A31</color>
+
 
 </resources>

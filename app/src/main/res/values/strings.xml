@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">ASU Eats</string>
+    <string name="img_dscrp">App Logo</string>
+    <string name="email">Email</string>
+    <string name="hint_email">Enter your email</string>
+    <string name="password">Password</string>
+    <string name="hint_pass">Enter your password</string>
+    <string name="confirm">Confirm password</string>
+    <string name="hint_confirm">Re-enter your password</string>
+    <string name="login">Login</string>
+    <string name="stay_in">Stay Logged In</string>
+    <string name="signup_link"><u>Sign Up</u></string>
+    <string name="signup">Sign Up</string>
 </resources>
