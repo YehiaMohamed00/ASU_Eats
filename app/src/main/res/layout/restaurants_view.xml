@@ -32,7 +32,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/base_button_style"
-            android:text="Cart" />
+            android:text="@string/cart_btn" />
 
         <Button
             android:id="@+id/button2"
@@ -40,7 +40,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/base_button_style"
-            android:text="Account" />
+            android:text="@string/account_btn" />
     </LinearLayout>
 
 

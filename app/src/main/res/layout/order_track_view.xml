@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_page"
@@ -28,7 +27,7 @@
             android:layout_weight="70"
             android:layout_height="0dp"
             app:srcCompat="@drawable/track_transparent"
-            android:contentDescription="TODO" />
+            android:contentDescription="@string/tracking_img" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -44,7 +43,7 @@
                 android:layout_weight="1"
                 android:maxEms="4"
                 android:textSize="16sp"
-                android:text="Order placed" />
+                android:text="@string/order_placed" />
 
             <TextView
                 android:id="@+id/textView11"
@@ -53,7 +52,7 @@
                 android:layout_weight="1"
                 android:maxEms="4"
                 android:textSize="16sp"
-                android:text="  In Package" />
+                android:text="@string/in_package" />
 
             <TextView
                 android:id="@+id/textView12"
@@ -62,7 +61,7 @@
                 android:layout_weight="1"
                 android:maxEms="4"
                 android:textSize="16sp"
-                android:text="On the Way" />
+                android:text="@string/on_way" />
 
             <TextView
                 android:id="@+id/textView13"
@@ -71,10 +70,8 @@
                 android:layout_weight="1"
                 android:maxEms="4"
                 android:textSize="16sp"
-                android:text="Being Served" />
+                android:text="@string/being_served" />
         </LinearLayout>
-
-
 
     </LinearLayout>
 

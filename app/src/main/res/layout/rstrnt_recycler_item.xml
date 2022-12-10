@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="158dp"
@@ -15,7 +14,8 @@
         android:layout_weight="1"
         android:background="#111222"
         android:scaleType="fitXY"
-        android:src="@drawable/restaurant_base_pic" />
+        android:src="@drawable/restaurant_base_pic"
+        android:contentDescription="@string/shop_img" />
 
     <LinearLayout
         android:layout_width="0dp"
@@ -33,9 +33,9 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:text="Restaurant Name"
+                android:text="@string/restaurant_name"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -44,7 +44,7 @@
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="cousine, price range"
+                android:text="@string/price_range"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@+id/textView"
                 app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -56,14 +56,13 @@
             android:layout_width="wrap_content"
             android:layout_weight="25"
             android:layout_height="0dp"
-            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:text="Show Menu"
+            android:text="@string/show_menu"
             android:textSize="20sp"
             />
 
     </LinearLayout>
-
 
 
 </LinearLayout>

@@ -26,7 +26,7 @@
             android:layout_height="0dp"
             android:layout_weight="10"
             android:background="@drawable/base_button_style"
-            android:text="Proceed to Payment" />
+            android:text="@string/proceed_payment" />
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>
