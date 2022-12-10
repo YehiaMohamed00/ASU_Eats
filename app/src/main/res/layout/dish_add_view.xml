@@ -14,7 +14,7 @@
         android:layout_weight="35"
         android:background="#111222"
         android:scaleType="fitXY"
-        android:src="@drawable/logo" />
+        android:src="@drawable/dish_base_pic" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
