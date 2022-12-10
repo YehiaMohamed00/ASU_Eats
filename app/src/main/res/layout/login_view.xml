@@ -122,6 +122,7 @@
         android:id="@+id/checkBox_stay_in"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:minHeight="48dp"
         android:text="@string/stay_in"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="@+id/edittext_password"
