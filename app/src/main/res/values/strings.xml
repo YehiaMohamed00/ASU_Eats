@@ -18,7 +18,7 @@
     <string name="availability">Availabililty: 4</string>
     <string name="minus_sign">–</string>
     <string name="plus_sign">+</string>
-    <string name="number_placeholder">10</string>
+    <string name="number_placeholder">1</string>
     <string name="cart_add">Add to Cart</string>
     <string name="logo">logo</string>
     <string name="tracking_img">tracking image</string>
@@ -40,7 +40,6 @@
     <string name="restaurant_name">Restaurant Name</string>
     <string name="price_range">cousine, price range</string>
     <string name="show_menu">Show Menu</string>
-
 
 
 </resources>

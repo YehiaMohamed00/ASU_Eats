@@ -7,7 +7,7 @@
     >
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/pav_orderdetail_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -18,37 +18,37 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/pav_orderdescription_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:maxEms="22"
         android:text="@string/order_details"
-        app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintStart_toStartOf="@+id/pav_orderdetail_tv"
+        app:layout_constraintTop_toBottomOf="@+id/pav_orderdetail_tv" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/pav_totalcost_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="@string/total_cost"
         android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        app:layout_constraintStart_toStartOf="@+id/pav_orderdescription_tv"
+        app:layout_constraintTop_toBottomOf="@+id/pav_orderdescription_tv" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/pav_costvalue_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/cost_tag"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/textView8"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintStart_toStartOf="@+id/pav_totalcost_tv"
+        app:layout_constraintTop_toBottomOf="@+id/pav_totalcost_tv" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/pav_placeorder_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
@@ -57,7 +57,7 @@
         android:text="@string/place_order"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/pav_costvalue_tv"
         android:background="@drawable/mybutton_style"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

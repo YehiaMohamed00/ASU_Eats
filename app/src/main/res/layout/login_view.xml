@@ -21,7 +21,7 @@
 
         <ImageView
 
-            android:id="@+id/logo_img"
+            android:id="@+id/lv_logo_img"
             android:layout_width="0dp"
             android:layout_weight="30"
             android:layout_height="match_parent"
@@ -30,7 +30,7 @@
 
         <ImageView
 
-            android:id="@+id/app_title"
+            android:id="@+id/lv_app_title"
             android:layout_width="0dp"
             android:layout_weight="75"
             android:layout_height="match_parent"
@@ -39,20 +39,20 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/signup_btn"
+        android:id="@+id/lv_login_btn"
         android:layout_width="128dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="75dp"
         android:background="@drawable/mybutton_style"
         android:text="@string/login"
         android:textColor="#DDDADA"
-        app:layout_constraintEnd_toEndOf="@+id/edittext_password"
-        app:layout_constraintStart_toStartOf="@+id/edittext_password"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox_stay_in" />
+        app:layout_constraintEnd_toEndOf="@+id/lv_pass_et"
+        app:layout_constraintStart_toStartOf="@+id/lv_pass_et"
+        app:layout_constraintTop_toBottomOf="@+id/lv_stayin_cb" />
 
     <TextView
 
-        android:id="@+id/text_view_email"
+        android:id="@+id/lv_email_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -65,7 +65,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <EditText
-        android:id="@+id/edittext_email"
+        android:id="@+id/lv_email_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -81,12 +81,12 @@
         android:textColorHint="#78909C"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout"
-        app:layout_constraintStart_toStartOf="@+id/text_view_email"
-        app:layout_constraintTop_toBottomOf="@+id/text_view_email"
+        app:layout_constraintStart_toStartOf="@+id/lv_email_tv"
+        app:layout_constraintTop_toBottomOf="@+id/lv_email_tv"
         android:autofillHints="" />
 
     <TextView
-        android:id="@+id/textview_password"
+        android:id="@+id/lv_pass_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -94,11 +94,11 @@
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/text_view_email"
-        app:layout_constraintTop_toBottomOf="@+id/edittext_email" />
+        app:layout_constraintStart_toStartOf="@+id/lv_email_tv"
+        app:layout_constraintTop_toBottomOf="@+id/lv_email_et" />
 
     <EditText
-        android:id="@+id/edittext_password"
+        android:id="@+id/lv_pass_et"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -114,22 +114,22 @@
         android:paddingEnd="8dp"
         android:textColorHint="#78909C"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/edittext_email"
-        app:layout_constraintStart_toStartOf="@+id/textview_password"
-        app:layout_constraintTop_toBottomOf="@+id/textview_password" />
+        app:layout_constraintEnd_toEndOf="@+id/lv_email_et"
+        app:layout_constraintStart_toStartOf="@+id/lv_pass_tv"
+        app:layout_constraintTop_toBottomOf="@+id/lv_pass_tv" />
 
     <CheckBox
-        android:id="@+id/checkBox_stay_in"
+        android:id="@+id/lv_stayin_cb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:minHeight="48dp"
         android:text="@string/stay_in"
         android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="@+id/edittext_password"
-        app:layout_constraintTop_toBottomOf="@+id/edittext_password" />
+        app:layout_constraintStart_toStartOf="@+id/lv_pass_et"
+        app:layout_constraintTop_toBottomOf="@+id/lv_pass_et" />
 
     <TextView
-        android:id="@+id/textview_signup"
+        android:id="@+id/lv_signup_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -137,10 +137,10 @@
         android:textColor="@color/btn"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/checkBox_stay_in"
-        app:layout_constraintEnd_toEndOf="@+id/edittext_password"
+        app:layout_constraintBottom_toBottomOf="@+id/lv_stayin_cb"
+        app:layout_constraintEnd_toEndOf="@+id/lv_pass_et"
 
-        app:layout_constraintTop_toBottomOf="@+id/edittext_password" />
+        app:layout_constraintTop_toBottomOf="@+id/lv_pass_et" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

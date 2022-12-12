@@ -24,7 +24,7 @@
 
 
         <TextView
-            android:id="@+id/textview"
+            android:id="@+id/dav_dishname_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
@@ -36,7 +36,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/dav_description_tv"
             android:layout_width="match_parent"
             android:layout_margin="10dp"
             android:layout_height="wrap_content"
@@ -45,22 +45,22 @@
             android:maxEms="14"
             android:text="@string/description"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/textview"
-            app:layout_constraintTop_toBottomOf="@+id/textview" />
+            app:layout_constraintStart_toStartOf="@+id/dav_dishname_tv"
+            app:layout_constraintTop_toBottomOf="@+id/dav_dishname_tv" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/dav_price_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
             android:maxEms="7"
             android:text="@string/price_base"
             android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            app:layout_constraintStart_toStartOf="@+id/dav_description_tv"
+            app:layout_constraintTop_toBottomOf="@+id/dav_description_tv" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/dav_availability_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
@@ -68,7 +68,7 @@
             android:text="@string/availability"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+            app:layout_constraintTop_toBottomOf="@+id/dav_description_tv" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -84,7 +84,7 @@
         android:layout_gravity="center"
         >
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/dav_amountminus_tv"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="7"
@@ -95,7 +95,7 @@
 
 
         <EditText
-            android:id="@+id/editTextNumber"
+            android:id="@+id/dav_amount_et"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="10"
@@ -110,7 +110,7 @@
             android:autofillHints="" />
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/dav_amountplus_tv"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="7"
@@ -122,7 +122,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/dav_addtocart_btn"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="12"

@@ -27,7 +27,7 @@
 
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/rv_cart_btn"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -35,7 +35,7 @@
             android:text="@string/cart_btn" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/rv_account_btn"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
