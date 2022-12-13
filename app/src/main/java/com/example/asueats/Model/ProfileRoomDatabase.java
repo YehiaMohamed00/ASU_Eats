@@ -47,7 +47,7 @@ public abstract class ProfileRoomDatabase extends RoomDatabase {
                 UserDao dao = INSTANCE.userDao();
                 dao.deleteAll();
 
-                User baseUser = new User("test@test.com", "testpassword");
+                User baseUser = new User("test@test.com", "test_test");
                 dao.insertUser(baseUser);
             });
         }

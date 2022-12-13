@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -27,6 +28,7 @@ public class RestaurantsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), CartActivity.class);
+
                 startActivity(i);
             }
         });
@@ -34,7 +36,11 @@ public class RestaurantsActivity extends AppCompatActivity {
         rv_account_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent tmp = getIntent();
                 Intent i = new Intent(getApplicationContext(), ProfileActivity.class);
+                i.putExtra("email", tmp.getStringExtra("email"));
+                i.putExtra("password", tmp.getStringExtra("password"));
+                Log.d("rest", i.getStringExtra("email") + "  " + i.getStringExtra("password"));
                 startActivity(i);
             }
         });

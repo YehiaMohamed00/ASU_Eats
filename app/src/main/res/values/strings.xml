@@ -33,13 +33,20 @@
     <string name="place_order">place order</string>
     <string name="personal_info">Personal Information</string>
     <string name="first_name">First name</string>
+    <string name="first_name_hint">Your first name</string>
     <string name="last_name">Last name</string>
+    <string name="last_name_hint">Your last name</string>
     <string name="cart_btn">Cart</string>
     <string name="account_btn">Account</string>
     <string name="shop_img">shop image</string>
     <string name="restaurant_name">Restaurant Name</string>
     <string name="price_range">cousine, price range</string>
     <string name="show_menu">Show Menu</string>
+    <string name="address">Address</string>
+    <string name="address_hint">Your address</string>
+    <string name="updateprofile">Update Profile</string>
+    <string name="test_email">test@test.com</string>
+    <string name="test_password">test_test</string>
 
 
 </resources>

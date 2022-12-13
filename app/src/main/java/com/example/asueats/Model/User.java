@@ -15,9 +15,35 @@ public class User {
     @ColumnInfo(name="password")
     private String password;
 
+    @ColumnInfo(name="first name")
+    private String firstName;
+
+    @ColumnInfo(name="last name")
+    private String lastName;
+
+    @ColumnInfo(name="address")
+    private String address;
+
+    String defaultValue = "Not Set";
+
     public User(@NonNull String email, @NonNull String password) {
         this.email = email;
         this.password = password;
+        this.firstName = defaultValue;
+        this.lastName = defaultValue;
+        this.address = defaultValue;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getEmail() {
@@ -28,5 +54,16 @@ public class User {
         return password;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
 }
 
