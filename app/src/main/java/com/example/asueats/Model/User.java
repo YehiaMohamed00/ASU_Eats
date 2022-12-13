@@ -15,23 +15,21 @@ public class User {
     @ColumnInfo(name="password")
     private String password;
 
-    @ColumnInfo(name="first name")
+    @ColumnInfo(name="first_name")
     private String firstName;
 
-    @ColumnInfo(name="last name")
+    @ColumnInfo(name="last_name")
     private String lastName;
 
     @ColumnInfo(name="address")
     private String address;
 
-    String defaultValue = "Not Set";
-
     public User(@NonNull String email, @NonNull String password) {
         this.email = email;
         this.password = password;
-        this.firstName = defaultValue;
-        this.lastName = defaultValue;
-        this.address = defaultValue;
+        this.firstName = "Not Set";
+        this.lastName = "Not Set";
+        this.address = "Not Set";
     }
 
     public void setFirstName(String firstName) {
@@ -46,6 +44,7 @@ public class User {
         this.address = address;
     }
 
+    @NonNull
     public String getEmail() {
         return this.email;
     }

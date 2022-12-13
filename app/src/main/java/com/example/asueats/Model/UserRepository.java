@@ -33,17 +33,21 @@ public class UserRepository {
         return mUserDao.getUser(email, password);
     }
 
+    public void updateInfo(String email, String firstName, String lastName, String address){
+        ProfileRoomDatabase.databaseWriteExecutor.execute(() -> mUserDao.updateInfo(email, firstName, lastName, address));
+    }
+
+    public void updatePass(String email, String password){
+        ProfileRoomDatabase.databaseWriteExecutor.execute(() -> mUserDao.updatePass(email, password));
+    }
+
     // You must call this on a non-UI thread or your app will throw an exception. Room ensures
     // that you're not doing any long running operations on the main thread, blocking the UI.
     public void insert(User user) {
-        ProfileRoomDatabase.databaseWriteExecutor.execute(() -> {
-            mUserDao.insertUser(user);
-        });
+        ProfileRoomDatabase.databaseWriteExecutor.execute(() -> mUserDao.insertUser(user));
     }
 
     public void deleteAll(){
-        ProfileRoomDatabase.databaseWriteExecutor.execute(() -> {
-            mUserDao.deleteAll();
-        });
+        ProfileRoomDatabase.databaseWriteExecutor.execute(() -> mUserDao.deleteAll());
     }
 }

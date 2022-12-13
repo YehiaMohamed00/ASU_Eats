@@ -4,7 +4,6 @@ import android.app.Application;
 
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-
 import com.example.asueats.Model.User;
 import com.example.asueats.Model.UserRepository;
 
@@ -30,6 +29,14 @@ public class UserViewModel extends AndroidViewModel {
 
     public User getUser(String email, String password){
         return mRepository.getUser(email, password);
+    }
+
+    public void updateInfo(String email, String firstName, String lastName, String address){
+        mRepository.updateInfo(email, firstName, lastName, address);
+    }
+
+    public void updatePass(String email, String password){
+        mRepository.updatePass(email, password);
     }
 
     public void insert(User user) { mRepository.insert(user); }

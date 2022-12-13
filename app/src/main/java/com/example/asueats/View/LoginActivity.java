@@ -19,7 +19,6 @@ import java.util.regex.Pattern;
 
 public class LoginActivity extends AppCompatActivity {
 
-    public final String email_key="email", password_key="password";
     TextView lv_signup_tv;
     Button lv_login_btn;
     EditText lv_email_et, lv_pass_et;
