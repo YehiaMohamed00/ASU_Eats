@@ -1,14 +1,17 @@
-package com.example.asueats;
+package com.example.asueats.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class ProfileActivity extends AppCompatActivity {
+import com.example.asueats.R;
+
+public class PaymentActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.profile_view);
+        setContentView(R.layout.payment_view);
+
     }
 }

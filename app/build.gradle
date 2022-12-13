@@ -14,6 +14,18 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        ///////////////////////
+        // Added for codelabs tutorial
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += [
+                        "room.schemaLocation":"$projectDir/schemas".toString(),
+                        "room.incremental":"true",
+                        "room.expandProjection":"true"]
+            }
+        }
+        ////////////////////
     }
 
     buildTypes {
@@ -38,5 +50,16 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
 
     // Added dependencies
+    ///////////////////////////
+    // Added for codelabs tutorial
+    def room_version = "2.4.3"
+    def lifecycle_version = "2.4.0-alpha02"
+
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+    // Lifecycle components
+    implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
+    ///////////////////////
 
 }

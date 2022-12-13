@@ -1,4 +1,4 @@
-package com.example.asueats;
+package com.example.asueats.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,26 +6,28 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
-public class SignupActivity extends AppCompatActivity {
+import com.example.asueats.R;
 
-    Button sv_signup_btn;
+public class CartActivity extends AppCompatActivity {
+
+    Button cv_topayment_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.signup_view);
-        sv_signup_btn = findViewById(R.id.sv_signup_btn);
+        setContentView(R.layout.cart_view);
+        cv_topayment_btn = findViewById(R.id.cv_topayment_btn);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        sv_signup_btn.setOnClickListener(new View.OnClickListener() {
+        cv_topayment_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                Intent i = new Intent(getApplicationContext(), PaymentActivity.class);
+                startActivity(i);
             }
         });
     }
