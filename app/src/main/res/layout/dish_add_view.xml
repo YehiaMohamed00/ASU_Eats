@@ -8,6 +8,7 @@
     >
 
     <ImageView
+        android:id="@+id/dav_dish_img"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="35"
@@ -84,7 +85,7 @@
         android:layout_gravity="center"
         >
         <Button
-            android:id="@+id/dav_amountminus_tv"
+            android:id="@+id/dav_amountminus_btn"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="7"
@@ -110,7 +111,7 @@
             android:autofillHints="" />
 
         <Button
-            android:id="@+id/dav_amountplus_tv"
+            android:id="@+id/dav_amountplus_btn"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="7"

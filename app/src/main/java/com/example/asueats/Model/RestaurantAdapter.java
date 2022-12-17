@@ -3,30 +3,28 @@ package com.example.asueats.Model;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.asueats.R;
-
 import java.util.List;
 
 public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.RestViewHolder> {
 
     List<Restaurant> restaurantList;
+    OnRestaurantListener mOnRestaurantListener;
 
-    public RestaurantAdapter(List<Restaurant> restaurantList) {
+    public RestaurantAdapter(List<Restaurant> restaurantList, OnRestaurantListener onRestaurantListener) {
         this.restaurantList = restaurantList;
+        this.mOnRestaurantListener = onRestaurantListener;
     }
 
     @NonNull
     @Override
     public RestViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rstrnt_recycler_item, parent, false);
-        return new RestViewHolder(view);
+        return new RestViewHolder(view, mOnRestaurantListener);
     }
 
     @Override
@@ -48,18 +46,28 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Re
         return restaurantList.size();
     }
 
-    public class RestViewHolder extends RecyclerView.ViewHolder{
+    public class RestViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        public ImageView RVHrestImg;
+        ImageView RVHrestImg;
         TextView RVHrestName, RVHrestCousineNrestPriceRange;
+        OnRestaurantListener onRestaurantListener;
 
-        public RestViewHolder(@NonNull View itemView) {
+        public RestViewHolder(@NonNull View itemView, OnRestaurantListener onRestaurantListener) {
             super(itemView);
 
             RVHrestImg = itemView.findViewById(R.id.rri_rest_img);
             RVHrestName = itemView.findViewById(R.id.rri_rstrntname_tv);
             RVHrestCousineNrestPriceRange = itemView.findViewById(R.id.rri_pricerange_tv);
+            this.onRestaurantListener = onRestaurantListener;
+            itemView.setOnClickListener(this);
         }
 
+        @Override
+        public void onClick(View view) {
+            onRestaurantListener.onRestClick(getAdapterPosition());
+        }
+    }
+    public interface OnRestaurantListener{
+        void onRestClick(int position);
     }
 }
