@@ -61,7 +61,7 @@ public class DishAddActivity extends AppCompatActivity {
         minusBtn.setOnClickListener(view -> {
 
             int newAvailability = dish.getDishAvailability()+1;
-            if(Integer.parseInt(amount.getText().toString()) > 0 ){
+            if(Integer.parseInt(amount.getText().toString()) > 1 ){
                 dish.setDishAvailability(newAvailability);
                 String strAvailability1 = "Availability: " + newAvailability;
                 dishAvailability.setText(strAvailability1);
