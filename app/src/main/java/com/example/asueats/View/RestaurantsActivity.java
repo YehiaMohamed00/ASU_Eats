@@ -12,6 +12,9 @@ import com.example.asueats.Model.Dish;
 import com.example.asueats.Model.Restaurant;
 import com.example.asueats.Model.RestaurantAdapter;
 import com.example.asueats.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +30,8 @@ public class RestaurantsActivity extends AppCompatActivity implements Restaurant
     List<Dish>dishList2;
     List<Dish>dishList3;
 
+    FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +39,7 @@ public class RestaurantsActivity extends AppCompatActivity implements Restaurant
         rv_cart_btn = findViewById(R.id.rv_cart_btn);
         rv_account_btn = findViewById(R.id.rv_account_btn);
 
+        mAuth = FirebaseAuth.getInstance();
 
         // initData
         restaurantList = new ArrayList<>();
@@ -99,6 +105,16 @@ public class RestaurantsActivity extends AppCompatActivity implements Restaurant
         recyclerView.setAdapter(restaurantAdapter);
         restaurantAdapter.notifyDataSetChanged();
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        FirebaseUser fUser = mAuth.getCurrentUser();
+        if(fUser == null){
+            startActivity(new Intent(this, LoginActivity.class));
+        }
     }
 
     @Override

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -11,12 +12,15 @@ import android.widget.Toast;
 import com.example.asueats.Model.User;
 import com.example.asueats.R;
 import com.example.asueats.ViewModel.UserViewModel;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    Button prv_update_btn;
+    Button prv_update_btn, prv_logout_btn;
     EditText prv_firstname_et, prv_lastname_et, prv_address_et;
     private UserViewModel mUserViewModel;
+    FirebaseAuth mAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +30,9 @@ public class ProfileActivity extends AppCompatActivity {
         prv_firstname_et = findViewById(R.id.prv_firstname_et);
         prv_lastname_et = findViewById(R.id.prv_lastname_et);
         prv_address_et = findViewById(R.id.prv_address_et);
+        prv_logout_btn = findViewById(R.id.prv_logout_btn);
+
+        mAuth = FirebaseAuth.getInstance();
         mUserViewModel = new ViewModelProvider(this).get(UserViewModel.class);
 
     }
@@ -36,6 +43,10 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        prv_logout_btn.setOnClickListener(view -> {
+            mAuth.signOut();
+            finish();
+        });
         prv_update_btn.setOnClickListener(view -> {
             String email = getIntent().getStringExtra("email");
             String password = getIntent().getStringExtra("password");
@@ -53,14 +64,17 @@ public class ProfileActivity extends AppCompatActivity {
                                 user.setFirstName(firstName);
                                 user.setLastName(lastName);
                                 user.setAddress(address);
+                                Toast.makeText(getApplicationContext(),"Profile Updated", Toast.LENGTH_LONG).show();
                             }
                             prv_firstname_et.setText(user.getFirstName());
                             prv_lastname_et.setText(user.getLastName());
                             prv_address_et.setText(user.getAddress());
+
                         });
                     }
             }).start();
         });
         prv_update_btn.callOnClick();
+
     }
 }

@@ -1,17 +1,26 @@
 package com.example.asueats.Model;
 
 import android.content.Context;
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 @Database(entities = {User.class}, version = 1, exportSchema = false)
 public abstract class ProfileRoomDatabase extends RoomDatabase {
+
+    static FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
     public abstract UserDao userDao();
 
@@ -28,6 +37,8 @@ public abstract class ProfileRoomDatabase extends RoomDatabase {
                                     ProfileRoomDatabase.class, "user_database")
                             .addCallback(sRoomDatabaseCallback)
                             .build();
+                    initialize();
+                    // TODO : FIGURE OUT WHY THE ROOM DATABASE ISN'T INSERTING USERS
                 }
             }
         }
@@ -39,18 +50,46 @@ public abstract class ProfileRoomDatabase extends RoomDatabase {
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
             super.onCreate(db);
 
+
             // If you want to keep data through app restarts,
             // comment out the following block
             databaseWriteExecutor.execute(() -> {
                 // Populate the database in the background.
                 // If you want to start with more users, just add them.
+                Log.d("yehiaDebug","reached the database");
                 UserDao dao = INSTANCE.userDao();
                 dao.deleteAll();
+                Log.d("yehiaDebug","reached insert");
+                dao.insertUser(new User("admin@admin.com", "admin_admin"));
+                Log.d("yehiaDebug","reached inserted");
 
-                User baseUser = new User("test@test.com", "test_test");
-                dao.insertUser(baseUser);
+//                // baseUser is made for testing purposes
+//                mAuth.createUserWithEmailAndPassword("admin@admin.com", "admin_admin").addOnCompleteListener(task -> {
+//                    if(task.isSuccessful()){
+//                        Log.d("yehiaDebug", "registered successfully");
+//                    }else{
+//
+//                        Log.d("yehiaDebug", "registration error");
+////                            Log.d("yehiaDebug", "registration error" + task.getException().getMessage());
+//                    }
+//                });
+
+
             });
         }
     };
+
+    public static void initialize(){
+                // baseUser is made for testing purposes
+                mAuth.createUserWithEmailAndPassword("admin@admin.com", "admin_admin").addOnCompleteListener(task -> {
+                    if(task.isSuccessful()){
+                        Log.d("yehiaDebug", "registered successfully");
+                    }else{
+
+                        Log.d("yehiaDebug", "registration error");
+//                            Log.d("yehiaDebug", "registration error" + task.getException().getMessage());
+                    }
+                });
+    }
 
 }

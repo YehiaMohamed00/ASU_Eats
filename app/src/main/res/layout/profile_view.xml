@@ -129,10 +129,25 @@
         android:background="@drawable/mybutton_style"
         android:padding="16dp"
         android:text="@string/updateprofile"
+        android:textColor="@color/white"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/prv_address_et"
         app:layout_constraintStart_toStartOf="@+id/prv_address_et"
         app:layout_constraintTop_toBottomOf="@+id/prv_address_et" />
+
+    <Button
+        android:id="@+id/prv_logout_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/mybutton_style"
+        android:padding="16dp"
+        android:text="@string/logout"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/prv_update_btn"
+        app:layout_constraintStart_toStartOf="@+id/prv_update_btn"
+        app:layout_constraintTop_toBottomOf="@+id/prv_update_btn" />
 
 
     <!--    TODO
