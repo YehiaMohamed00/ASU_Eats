@@ -93,7 +93,7 @@ public class LoginActivity extends AppCompatActivity {
 //                        for (DataSnapshot sq: so.getChildren()){
                         HashMap dish = (HashMap)so.getValue();
                         double tmp = Double.parseDouble(dish.get("price").toString());
-                        dishList.add(new Dish(R.drawable.momen, dish.get("name").toString(),
+                        dishList.add(new Dish(dish.get("img").toString(), dish.get("name").toString(),
                                 "placeholder",tmp
                                 , 4));
 //                        }

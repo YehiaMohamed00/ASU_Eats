@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference restRef = database.getReference("restaurants");
-        DatabaseReference dishRef = database.getReference("dishes");
+//        DatabaseReference dishRef = database.getReference("dishes");
 
 
 
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dsp: snapshot.getChildren()){
                     HashMap rest = (HashMap)dsp.getValue();
-                    restaurantList.add(new Restaurant(R.drawable.momen, rest.get("name").toString(),
+                    restaurantList.add(new Restaurant(rest.get("img").toString(), rest.get("name").toString(),
                             rest.get("type").toString(), rest.get("range").toString()));
                     Log.d("yehiaaDebug", rest.get("name").toString());
                 }

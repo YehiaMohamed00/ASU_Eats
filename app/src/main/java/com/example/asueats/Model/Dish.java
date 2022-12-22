@@ -3,13 +3,13 @@ package com.example.asueats.Model;
 import java.io.Serializable;
 
 public class Dish implements Serializable {
-    int dishImg;
+    String dishImg;
     String dishName;
     String dishDescription;
     double dishPrice;
     int dishAvailability;
 
-    public Dish(int dishImg, String dishName, String dishDescription, double dishPrice, int dishAvailability) {
+    public Dish(String dishImg, String dishName, String dishDescription, double dishPrice, int dishAvailability) {
         this.dishImg = dishImg;
         this.dishName = dishName;
         this.dishDescription = dishDescription;
@@ -17,7 +17,7 @@ public class Dish implements Serializable {
         this.dishAvailability = dishAvailability;
     }
 
-    public int getDishImg() {
+    public String getDishImg() {
         return dishImg;
     }
 

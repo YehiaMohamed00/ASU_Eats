@@ -1,5 +1,6 @@
 package com.example.asueats.Model;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,7 +8,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 import com.example.asueats.R;
+import com.example.asueats.View.MainActivity;
+
 import java.util.List;
 
 public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.RestViewHolder> {
@@ -29,13 +34,14 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Re
 
     @Override
     public void onBindViewHolder(@NonNull RestViewHolder holder, int position) {
-        int restImg= restaurantList.get(position).getRestImg();
+        String restImg= restaurantList.get(position).getRestImg();
         String restName = restaurantList.get(position).getRestName();
         String restCousine = restaurantList.get(position).getRestCousine();
         String restPriceRange =  restaurantList.get(position).getRestPriceRange();
 
 
-        holder.RVHrestImg.setImageResource(restImg);
+        Glide.with(holder.RVHrestImg.getContext()).load(restImg).into(holder.RVHrestImg);
+//        holder.RVHrestImg.setImageResource(restImg);
         holder.RVHrestName.setText(restName);
         String concatenated = restCousine + ", " + restPriceRange;
         holder.RVHrestCousineNrestPriceRange.setText(concatenated);

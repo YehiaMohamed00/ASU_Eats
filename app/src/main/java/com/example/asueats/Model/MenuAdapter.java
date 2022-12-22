@@ -7,6 +7,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 import com.example.asueats.R;
 import java.util.List;
 
@@ -29,17 +31,17 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull MenuViewHolder holder, int position) {
-        int dishImg= dishList.get(position).getDishImg();
+        String dishImg= dishList.get(position).getDishImg();
         String dishName = dishList.get(position).getDishName();
         String dishDescription = dishList.get(position).getDishDescription();
         Double dishPrice =  dishList.get(position).getDishPrice();
         Integer dishAvailability = dishList.get(position).getDishAvailability();
 
-
-        holder.MVHdishImg.setImageResource(dishImg);
+        Glide.with(holder.MVHdishImg.getContext()).load(dishImg).into(holder.MVHdishImg);
+//        holder.MVHdishImg.setImageResource(dishImg);
         holder.MVHdishName.setText(dishName);
         holder.MVHdishDescription.setText(dishDescription);
-        String strPrice = dishPrice+  "EGP";
+        String strPrice = dishPrice+  " EGP";
         holder.MVHdishPrice.setText(strPrice);
         String strAvailability = "Availability: " + dishAvailability.toString();
         holder.MVHdishAvailability.setText(strAvailability);

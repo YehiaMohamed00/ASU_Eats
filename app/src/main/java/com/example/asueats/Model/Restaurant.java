@@ -5,13 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Restaurant implements Serializable {
-    int restImg;
+    String restImg;
     String restName;
     String restCousine;
     String restPriceRange;
     List<Dish> dishList;
 
-    public Restaurant(int restImg, String restName, String restCousine, String restPriceRange, List<Dish> dishList) {
+    public Restaurant(String restImg, String restName, String restCousine, String restPriceRange, List<Dish> dishList) {
         this.restImg = restImg;
         this.restName = restName;
         this.restCousine = restCousine;
@@ -19,7 +19,7 @@ public class Restaurant implements Serializable {
         this.dishList = dishList;
     }
 
-    public Restaurant(int restImg, String restName, String restCousine, String restPriceRange) {
+    public Restaurant(String restImg, String restName, String restCousine, String restPriceRange) {
         this.restImg = restImg;
         this.restName = restName;
         this.restCousine = restCousine;
@@ -30,7 +30,7 @@ public class Restaurant implements Serializable {
         this.dishList = dishList;
     }
 
-    public int getRestImg() {
+    public String getRestImg() {
         return restImg;
     }
 

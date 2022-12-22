@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.asueats.Model.Dish;
 import com.example.asueats.R;
 
@@ -40,10 +41,11 @@ public class DishAddActivity extends AppCompatActivity {
 
         Bundle bundle = getIntent().getBundleExtra("dish");
         dish = (Dish)bundle.getSerializable("dishSelected");
-        dishImg.setImageResource(dish.getDishImg());
+        Glide.with(dishImg.getContext()).load(dish.getDishImg()).into(dishImg);
+//        dishImg.setImageResource(dish.getDishImg());
         dishName.setText(dish.getDishName());
         dishDescription.setText(dish.getDishDescription());
-        String strPrice = ((Double)dish.getDishPrice()) + "EGP";
+        String strPrice = ((Double)dish.getDishPrice()) + " EGP";
         dishPrice.setText(strPrice);
         String strAvailability = "Availability: " + ((Integer)dish.getDishAvailability()).toString();
         dishAvailability.setText(strAvailability);

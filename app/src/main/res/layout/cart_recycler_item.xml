@@ -4,7 +4,12 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="158dp"
-    android:paddingTop="8dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:background="@drawable/card_simulation"
+    android:elevation="8dp"
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,6 +19,7 @@
 
 
         <TextView
+            android:textColor="@color/text_color"
             android:id="@+id/cri_dishname_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -26,6 +32,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:textColor="@color/text_color"
             android:id="@+id/cri_description_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -36,6 +43,7 @@
             app:layout_constraintTop_toBottomOf="@+id/cri_dishname_tv" />
 
         <TextView
+            android:textColor="@color/text_color"
             android:id="@+id/cri_price_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

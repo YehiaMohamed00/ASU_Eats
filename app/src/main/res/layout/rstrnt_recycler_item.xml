@@ -4,7 +4,12 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="158dp"
-    android:paddingTop="8dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginEnd="8dp"
+    android:background="@drawable/card_simulation"
+    android:elevation="8dp"
 
     >
 
@@ -12,7 +17,7 @@
         android:id="@+id/rri_rest_img"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_weight="40"
         android:background="#111222"
         android:scaleType="fitXY"
         android:src="@drawable/restaurant_base_pic"
@@ -22,7 +27,8 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_weight="2">
+        android:layout_weight="66"
+        >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -31,6 +37,7 @@
 
 
             <TextView
+                android:textColor="@color/text_color"
                 android:id="@+id/rri_rstrntname_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -42,6 +49,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:textColor="@color/text_color"
                 android:id="@+id/rri_pricerange_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -52,15 +60,24 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider" />
+
         <TextView
+            android:background="@drawable/menu_show"
+            android:textColor="@color/white"
             android:id="@+id/rri_showmenu_tv"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_weight="25"
             android:layout_height="0dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="5dp"
+            android:paddingTop="6dp"
             android:text="@string/show_menu"
-            android:textSize="20sp"
+            android:textSize="22sp"
             />
 
     </LinearLayout>
