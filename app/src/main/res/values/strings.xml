@@ -18,7 +18,7 @@
     <string name="availability">Availabililty: 4</string>
     <string name="minus_sign">–</string>
     <string name="plus_sign">+</string>
-    <string name="number_placeholder">1</string>
+    <string name="number_placeholder">0</string>
     <string name="cart_add">Add to Cart</string>
     <string name="logo">logo</string>
     <string name="tracking_img">tracking image</string>

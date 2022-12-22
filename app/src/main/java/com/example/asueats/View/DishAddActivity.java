@@ -43,7 +43,7 @@ public class DishAddActivity extends AppCompatActivity {
         dishImg.setImageResource(dish.getDishImg());
         dishName.setText(dish.getDishName());
         dishDescription.setText(dish.getDishDescription());
-        String strPrice = ((Double)dish.getDishPrice()).toString();
+        String strPrice = ((Double)dish.getDishPrice()) + "EGP";
         dishPrice.setText(strPrice);
         String strAvailability = "Availability: " + ((Integer)dish.getDishAvailability()).toString();
         dishAvailability.setText(strAvailability);

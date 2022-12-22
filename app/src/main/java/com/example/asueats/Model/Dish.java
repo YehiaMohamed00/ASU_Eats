@@ -40,4 +40,15 @@ public class Dish implements Serializable {
     public void setDishAvailability(int dishAvailability) {
         this.dishAvailability = dishAvailability;
     }
+
+    @Override
+    public String toString() {
+        return "Dish{" +
+                "dishImg=" + dishImg +
+                ", dishName='" + dishName + '\'' +
+                ", dishDescription='" + dishDescription + '\'' +
+                ", dishPrice=" + dishPrice +
+                ", dishAvailability=" + dishAvailability +
+                '}';
+    }
 }

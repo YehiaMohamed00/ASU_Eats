@@ -39,7 +39,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuViewHolder
         holder.MVHdishImg.setImageResource(dishImg);
         holder.MVHdishName.setText(dishName);
         holder.MVHdishDescription.setText(dishDescription);
-        String strPrice = dishPrice.toString();
+        String strPrice = dishPrice+  "EGP";
         holder.MVHdishPrice.setText(strPrice);
         String strAvailability = "Availability: " + dishAvailability.toString();
         holder.MVHdishAvailability.setText(strAvailability);

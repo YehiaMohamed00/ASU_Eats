@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 
 import com.example.asueats.Model.Dish;
@@ -33,6 +34,7 @@ public class MenuActivity extends AppCompatActivity implements MenuAdapter.OnDis
         dishList = new ArrayList<>();
         Bundle bundle = getIntent().getBundleExtra("restaurant");
         dishList = ((Restaurant)bundle.getSerializable("restSelected")).getDishList();
+        Log.d("yehiaaDebug = Menu ", dishList.toString());
 //        dishList.add(new Dish(R.drawable.foodcorner, "negresco",
 //                "negresco macaroni",15, 3));
 //        dishList.add(new Dish(R.drawable.momen, "akl 2", "desc 2", 20, 4));

@@ -37,8 +37,7 @@ public abstract class ProfileRoomDatabase extends RoomDatabase {
                                     ProfileRoomDatabase.class, "user_database")
                             .addCallback(sRoomDatabaseCallback)
                             .build();
-                    initialize();
-                    // TODO : FIGURE OUT WHY THE ROOM DATABASE ISN'T INSERTING USERS
+                    initializeInFirebase();
                 }
             }
         }
@@ -62,24 +61,11 @@ public abstract class ProfileRoomDatabase extends RoomDatabase {
                 Log.d("yehiaDebug","reached insert");
                 dao.insertUser(new User("admin@admin.com", "admin_admin"));
                 Log.d("yehiaDebug","reached inserted");
-
-//                // baseUser is made for testing purposes
-//                mAuth.createUserWithEmailAndPassword("admin@admin.com", "admin_admin").addOnCompleteListener(task -> {
-//                    if(task.isSuccessful()){
-//                        Log.d("yehiaDebug", "registered successfully");
-//                    }else{
-//
-//                        Log.d("yehiaDebug", "registration error");
-////                            Log.d("yehiaDebug", "registration error" + task.getException().getMessage());
-//                    }
-//                });
-
-
             });
         }
     };
 
-    public static void initialize(){
+    public static void initializeInFirebase(){
                 // baseUser is made for testing purposes
                 mAuth.createUserWithEmailAndPassword("admin@admin.com", "admin_admin").addOnCompleteListener(task -> {
                     if(task.isSuccessful()){

@@ -1,11 +1,6 @@
 package com.example.asueats.View;
 
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
-
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,14 +8,25 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.example.asueats.Model.User;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+
+import com.example.asueats.Model.Dish;
+import com.example.asueats.Model.Restaurant;
 import com.example.asueats.R;
 import com.example.asueats.ViewModel.UserViewModel;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -32,6 +38,8 @@ public class LoginActivity extends AppCompatActivity {
     private UserViewModel mUserViewModel;
     Pattern pattern;
     FirebaseAuth mAuth;
+    List<Dish>dishList;
+    List<Restaurant>restList;
 //    ProfileRoomDatabase userDatabase;
 
     @Override
@@ -65,6 +73,45 @@ public class LoginActivity extends AppCompatActivity {
 //            }
 //        });
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        restList = MainActivity.restaurantList;
+        dishList = new ArrayList<>();
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference dishRef = database.getReference("dishes");
+
+        dishRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int i = 0;
+                for (DataSnapshot sp: snapshot.getChildren()){
+                    for (DataSnapshot so: sp.getChildren()){
+//                        for (DataSnapshot sq: so.getChildren()){
+                        HashMap dish = (HashMap)so.getValue();
+                        double tmp = Double.parseDouble(dish.get("price").toString());
+                        dishList.add(new Dish(R.drawable.momen, dish.get("name").toString(),
+                                "placeholder",tmp
+                                , 4));
+//                        }
+                    }
+                    MainActivity.restaurantList.get(i).setDishList(dishList);
+                    Log.d("yehiaaDebug = dish", MainActivity.restaurantList.get(i).toString());
+                    dishList = new ArrayList<>();
+                    Log.d("yehiaaDebug = dish", MainActivity.restaurantList.get(i).toString());
+                    i++;
+                }
+                Log.d("yehiaaDebug = dish", dishList.toString());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     @Override

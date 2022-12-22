@@ -19,9 +19,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginTop="8dp"
-            android:maxEms="7"
+            android:maxEms="8"
             android:text="@string/dish_name"
-            android:textSize="24sp"
+            android:textSize="22sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

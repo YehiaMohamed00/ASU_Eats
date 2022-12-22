@@ -19,6 +19,17 @@ public class Restaurant implements Serializable {
         this.dishList = dishList;
     }
 
+    public Restaurant(int restImg, String restName, String restCousine, String restPriceRange) {
+        this.restImg = restImg;
+        this.restName = restName;
+        this.restCousine = restCousine;
+        this.restPriceRange = restPriceRange;
+    }
+
+    public void setDishList(List<Dish> dishList) {
+        this.dishList = dishList;
+    }
+
     public int getRestImg() {
         return restImg;
     }
@@ -37,5 +48,16 @@ public class Restaurant implements Serializable {
 
     public List<Dish> getDishList() {
         return dishList;
+    }
+
+    @Override
+    public String toString() {
+        return "Restaurant{" +
+                "restImg=" + restImg +
+                ", restName='" + restName + '\'' +
+                ", restCousine='" + restCousine + '\'' +
+                ", restPriceRange='" + restPriceRange + '\'' +
+                ", dishList=" + dishList.toString() +
+                '}';
     }
 }
