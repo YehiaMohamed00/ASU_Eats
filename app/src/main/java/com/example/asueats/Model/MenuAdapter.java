@@ -40,7 +40,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuViewHolder
         Glide.with(holder.MVHdishImg.getContext()).load(dishImg).into(holder.MVHdishImg);
 //        holder.MVHdishImg.setImageResource(dishImg);
         holder.MVHdishName.setText(dishName);
-        holder.MVHdishDescription.setText(dishDescription);
+//        holder.MVHdishDescription.setText(dishDescription);
         String strPrice = dishPrice+  " EGP";
         holder.MVHdishPrice.setText(strPrice);
         String strAvailability = "Availability: " + dishAvailability.toString();

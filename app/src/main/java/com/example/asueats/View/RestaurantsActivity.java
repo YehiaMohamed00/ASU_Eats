@@ -40,6 +40,8 @@ public class RestaurantsActivity extends AppCompatActivity implements Restaurant
 
     FirebaseAuth mAuth;
     Boolean updated = false;
+//    public List<Restaurant> restaurantList;
+    List<Dish> dishList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +53,15 @@ public class RestaurantsActivity extends AppCompatActivity implements Restaurant
 //        restaurantList = MainActivity.restaurantList;
 
         mAuth = FirebaseAuth.getInstance();
+
+        recyclerView = findViewById(R.id.rv_recyclerview);
+        layoutManager = new LinearLayoutManager(this);
+        layoutManager.setOrientation(RecyclerView.VERTICAL);
+        recyclerView.setLayoutManager(layoutManager);
+        restaurantAdapter = new RestaurantAdapter(MainActivity.restaurantList, this);
+        recyclerView.setAdapter(restaurantAdapter);
+        restaurantAdapter.notifyDataSetChanged();
+
 //        FirebaseDatabase database = FirebaseDatabase.getInstance();
 //        DatabaseReference dishesRef = database.getReference("dishes");
 //        DatabaseReference restRef = database.getReference("restaurants");
@@ -109,13 +120,7 @@ public class RestaurantsActivity extends AppCompatActivity implements Restaurant
 
 
         // initRecyclerView
-        recyclerView = findViewById(R.id.rv_recyclerview);
-        layoutManager = new LinearLayoutManager(this);
-        layoutManager.setOrientation(RecyclerView.VERTICAL);
-        recyclerView.setLayoutManager(layoutManager);
-        restaurantAdapter = new RestaurantAdapter(MainActivity.restaurantList, this);
-        recyclerView.setAdapter(restaurantAdapter);
-        restaurantAdapter.notifyDataSetChanged();
+
 
 
 //        Log.d("yehiaaDebug", restaurantList.toString());

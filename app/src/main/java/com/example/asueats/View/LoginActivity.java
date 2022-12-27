@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
     Pattern pattern;
     FirebaseAuth mAuth;
     List<Dish>dishList;
-    List<Restaurant>restList;
+//    List<Restaurant>restList;
 //    ProfileRoomDatabase userDatabase;
 
     @Override
@@ -78,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        restList = MainActivity.restaurantList;
+//                restList = restaurantList;
         dishList = new ArrayList<>();
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -136,12 +136,13 @@ public class LoginActivity extends AppCompatActivity {
                             i.putExtra("password", password);
 //                            Log.d("notice", email + "  " + password);
                             startActivity(i);
+                            finish();
                         }else{
                             Toast.makeText(LoginActivity.this, "Login error",Toast.LENGTH_LONG).show();
                         }
                     });
 //                    new Thread(() -> {
-////                        Toast.makeText(getApplicationContext(),"the thread runs", Toast.LENGTH_LONG).show();
+//                        Toast.makeText(getApplicationContext(),"the thread runs", Toast.LENGTH_LONG).show();
 //                        User user = mUserViewModel.getUser(email, password);
 //                        if(user == null){
 //                            runOnUiThread(() -> Toast.makeText(getApplicationContext(),"Invalid Credentials", Toast.LENGTH_LONG).show());

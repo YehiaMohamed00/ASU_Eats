@@ -66,13 +66,13 @@ public class SignupActivity extends AppCompatActivity {
                     mAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(task -> {
                         if(task.isSuccessful()){
                             Toast.makeText(SignupActivity.this, "Registered Successfully",Toast.LENGTH_LONG).show();
+                            mUserViewModel.insert(new User(email, pass));
                         }else{
 //                            Toast.makeText(SignupActivity.this, "Registration error" + task.getException().getMessage(),Toast.LENGTH_LONG).show();
                             Log.d("yehiaDebug","Registration error");
 //                            Log.d("yehiaDebug",task.getException().getMessage());
                         }
                     });
-                    mUserViewModel.insert(new User(email, pass));
                     finish();
                 }
                 else{
