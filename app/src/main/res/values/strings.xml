@@ -49,6 +49,6 @@
     <string name="test_password">admin_admin</string>
     <string name="logout">Logout</string>
     <string name="empty"> </string>
-
+    <string name="menu">Menu</string>
 
 </resources>

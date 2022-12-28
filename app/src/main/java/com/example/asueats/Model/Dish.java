@@ -7,14 +7,25 @@ public class Dish implements Serializable {
     String dishName;
     String dishDescription;
     double dishPrice;
-    int dishAvailability;
+    String dishAvailability;
+//    int count;
 
-    public Dish(String dishImg, String dishName, String dishDescription, double dishPrice, int dishAvailability) {
+    public Dish(String dishImg, String dishName, String dishDescription, double dishPrice, String dishAvailability) {
         this.dishImg = dishImg;
         this.dishName = dishName;
         this.dishDescription = dishDescription;
         this.dishPrice = dishPrice;
         this.dishAvailability = dishAvailability;
+//        this.count = 0;
+    }
+
+    public Dish(Dish dish){
+        this.dishImg = dish.dishImg;
+        this.dishName = dish.dishName;
+        this.dishDescription = dish.dishDescription;
+        this.dishPrice = dish.dishPrice;
+        this.dishAvailability = dish.dishAvailability;
+//        this.count = 0;
     }
 
     public String getDishImg() {
@@ -33,11 +44,11 @@ public class Dish implements Serializable {
         return dishPrice;
     }
 
-    public int getDishAvailability() {
+    public String getDishAvailability() {
         return dishAvailability;
     }
 
-    public void setDishAvailability(int dishAvailability) {
+    public void setDishAvailability(String dishAvailability) {
         this.dishAvailability = dishAvailability;
     }
 

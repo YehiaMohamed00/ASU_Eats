@@ -5,6 +5,9 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity(tableName="user_table")
 public class User {
     @PrimaryKey
@@ -24,13 +27,18 @@ public class User {
     @ColumnInfo(name="address")
     private String address;
 
+//    TODO : List<Dish> userCartList;
+
     public User(@NonNull String email, @NonNull String password) {
         this.email = email;
         this.password = password;
         this.firstName = "Not Set";
         this.lastName = "Not Set";
         this.address = "Not Set";
+//        this.userCartList = new ArrayList<>();
     }
+
+
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -43,6 +51,12 @@ public class User {
     public void setAddress(String address) {
         this.address = address;
     }
+
+//    public void setUserCartList(List<Dish> userCartList) {
+//        this.userCartList = userCartList;
+//    }
+
+
 
     @NonNull
     public String getEmail() {
@@ -64,5 +78,6 @@ public class User {
     public String getAddress() {
         return address;
     }
+
 }
 

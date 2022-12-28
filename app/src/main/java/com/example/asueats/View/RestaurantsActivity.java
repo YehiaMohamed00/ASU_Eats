@@ -28,6 +28,7 @@ import java.util.List;
 
 public class RestaurantsActivity extends AppCompatActivity implements RestaurantAdapter.OnRestaurantListener {
 
+    public static List<Dish> cartList;
     Button rv_cart_btn, rv_account_btn;
     RecyclerView recyclerView;
     LinearLayoutManager layoutManager;
@@ -41,7 +42,7 @@ public class RestaurantsActivity extends AppCompatActivity implements Restaurant
     FirebaseAuth mAuth;
     Boolean updated = false;
 //    public List<Restaurant> restaurantList;
-    List<Dish> dishList;
+//    List<Dish> dishList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +54,7 @@ public class RestaurantsActivity extends AppCompatActivity implements Restaurant
 //        restaurantList = MainActivity.restaurantList;
 
         mAuth = FirebaseAuth.getInstance();
+        cartList = new ArrayList<>();
 
         recyclerView = findViewById(R.id.rv_recyclerview);
         layoutManager = new LinearLayoutManager(this);

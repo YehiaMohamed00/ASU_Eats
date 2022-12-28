@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.asueats.Model.Dish;
 import com.example.asueats.Model.MenuAdapter;
@@ -60,10 +61,14 @@ public class MenuActivity extends AppCompatActivity implements MenuAdapter.OnDis
 
     @Override
     public void onDishClick(int position) {
-        Intent i = new Intent(this, DishAddActivity.class);
-        Bundle bundle = new Bundle();
-        bundle.putSerializable("dishSelected", dishList.get(position));
-        i.putExtra("dish", bundle);
-        startActivity(i);
+        if(dishList.get(position).getDishAvailability().equals("Available")){
+            Intent i = new Intent(this, DishAddActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("dishSelected", dishList.get(position));
+            i.putExtra("dish", bundle);
+            startActivity(i);
+        }else {
+            Toast.makeText(this, "Dish not available", Toast.LENGTH_LONG).show();
+        }
     }
 }

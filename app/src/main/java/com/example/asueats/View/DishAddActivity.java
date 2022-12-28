@@ -47,34 +47,41 @@ public class DishAddActivity extends AppCompatActivity {
         dishDescription.setText(dish.getDishDescription());
         String strPrice = ((Double)dish.getDishPrice()) + " EGP";
         dishPrice.setText(strPrice);
-        String strAvailability = "Availability: " + ((Integer)dish.getDishAvailability()).toString();
+        String strAvailability = "Availability: " + dish.getDishAvailability().toString();
         dishAvailability.setText(strAvailability);
 
         plusBtn.setOnClickListener(view -> {
-            int newAvailability = dish.getDishAvailability()-1;
-            if(newAvailability >= 0){
-                dish.setDishAvailability(newAvailability);
-                String strAvailability1 = "Availability: " + newAvailability;
-                dishAvailability.setText(strAvailability1);
+            if(dish.getDishAvailability().equals("Available")){
+//                dish.setDishAvailability(newAvailability);
+//                String strAvailability1 = "Availability: " + newAvailability;
+//                dishAvailability.setText(strAvailability1);
+                // TODO : Add new item to cartlist
+                RestaurantsActivity.cartList.add(new Dish(dish));
+                Log.d("yehiaaDebug = cartlist","added ->" + RestaurantsActivity.cartList.toString());
                 amount.setText(String.valueOf(Integer.parseInt(amount.getText().toString())+1));
             }
         });
 
         minusBtn.setOnClickListener(view -> {
-
-            int newAvailability = dish.getDishAvailability()+1;
-            if(Integer.parseInt(amount.getText().toString()) > 1 ){
-                dish.setDishAvailability(newAvailability);
-                String strAvailability1 = "Availability: " + newAvailability;
-                dishAvailability.setText(strAvailability1);
-                amount.setText(String.valueOf(Integer.parseInt(amount.getText().toString())-1));
+            // TODO: remove from cartlist
+            for (Dish dishh: RestaurantsActivity.cartList){
+                int i = 0;
+                if(dishh.getDishName().equals(dish.getDishName())){
+                    RestaurantsActivity.cartList.remove(i);
+                    Log.d("yehiaaDebug = cartlist","removed ->" + RestaurantsActivity.cartList.toString());
+                    break;
+                }
+                i++;
             }
+//            RestaurantsActivity.cartList.remove();
+//            amount.setText(String.valueOf(Integer.parseInt(amount.getText().toString())-1));
         });
 
         toCartBtn.setOnClickListener(view -> {
 //            Intent i = new Intent(getApplicationContext(), CartActivity.class);
 //            startActivity(i);
             // TODO : Add functionality of adding the dish to the order in the cart
+            // TODO: add cartList content to cart recyclerview
             finish();
         });
 

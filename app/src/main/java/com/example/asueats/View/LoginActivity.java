@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.asueats.Model.Dish;
 import com.example.asueats.Model.Restaurant;
+import com.example.asueats.Model.User;
 import com.example.asueats.R;
 import com.example.asueats.ViewModel.UserViewModel;
 import com.google.firebase.auth.FirebaseAuth;
@@ -32,12 +33,15 @@ import java.util.regex.Pattern;
 
 public class LoginActivity extends AppCompatActivity {
 
+
+    User loggedUser;
     TextView lv_signup_tv;
     Button lv_login_btn;
     EditText lv_email_et, lv_pass_et;
     private UserViewModel mUserViewModel;
     Pattern pattern;
     FirebaseAuth mAuth;
+
     List<Dish>dishList;
 //    List<Restaurant>restList;
 //    ProfileRoomDatabase userDatabase;
@@ -93,9 +97,15 @@ public class LoginActivity extends AppCompatActivity {
 //                        for (DataSnapshot sq: so.getChildren()){
                         HashMap dish = (HashMap)so.getValue();
                         double tmp = Double.parseDouble(dish.get("price").toString());
-                        dishList.add(new Dish(dish.get("img").toString(), dish.get("name").toString(),
-                                "placeholder",tmp
-                                , 4));
+                        if(dish.get("availability").toString().equals("Available")){
+                            dishList.add(new Dish(dish.get("img").toString(), dish.get("name").toString(),
+                                    "placeholder",tmp
+                                    , "Available"));
+                        }else{
+                            dishList.add(new Dish(dish.get("img").toString(), dish.get("name").toString(),
+                                    "placeholder",tmp
+                                    , "N/A"));
+                        }
 //                        }
                     }
                     MainActivity.restaurantList.get(i).setDishList(dishList);
@@ -132,6 +142,7 @@ public class LoginActivity extends AppCompatActivity {
                         if(task.isSuccessful()){
                             Toast.makeText(LoginActivity.this, "Logged in Successfully",Toast.LENGTH_LONG).show();
                             Intent i = new Intent(getApplicationContext(), RestaurantsActivity.class);
+                            // TODO: get user cartlist
                             i.putExtra("email", email);
                             i.putExtra("password", password);
 //                            Log.d("notice", email + "  " + password);

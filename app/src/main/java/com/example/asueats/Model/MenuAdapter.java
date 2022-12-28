@@ -35,7 +35,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuViewHolder
         String dishName = dishList.get(position).getDishName();
         String dishDescription = dishList.get(position).getDishDescription();
         Double dishPrice =  dishList.get(position).getDishPrice();
-        Integer dishAvailability = dishList.get(position).getDishAvailability();
+        String dishAvailability = dishList.get(position).getDishAvailability();
 
         Glide.with(holder.MVHdishImg.getContext()).load(dishImg).into(holder.MVHdishImg);
 //        holder.MVHdishImg.setImageResource(dishImg);
@@ -43,7 +43,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuViewHolder
 //        holder.MVHdishDescription.setText(dishDescription);
         String strPrice = dishPrice+  " EGP";
         holder.MVHdishPrice.setText(strPrice);
-        String strAvailability = "Availability: " + dishAvailability.toString();
+        String strAvailability = dishAvailability.toString();
         holder.MVHdishAvailability.setText(strAvailability);
     }
 
