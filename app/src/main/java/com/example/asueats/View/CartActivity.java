@@ -93,8 +93,6 @@ public class CartActivity extends AppCompatActivity implements CartAdapter.OnDis
                     isAcceptablePeriod = currHour <= 13;
                 }
 
-                // TODO: Delete next statement this is only for testing
-                isAcceptablePeriod = true;
                 if (isAcceptablePeriod){
                     for (Dish d: RestaurantsActivity.cartList){
                         totalPrice += d.getDishPrice();
