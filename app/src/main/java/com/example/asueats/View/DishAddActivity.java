@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.asueats.Model.Dish;
@@ -78,10 +79,7 @@ public class DishAddActivity extends AppCompatActivity {
         });
 
         toCartBtn.setOnClickListener(view -> {
-//            Intent i = new Intent(getApplicationContext(), CartActivity.class);
-//            startActivity(i);
-            // TODO : Add functionality of adding the dish to the order in the cart
-            // TODO: add cartList content to cart recyclerview
+            Toast.makeText(this, "Added to Cart", Toast.LENGTH_SHORT).show();
             finish();
         });
 

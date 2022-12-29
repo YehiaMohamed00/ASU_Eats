@@ -15,7 +15,7 @@
     <string name="description">descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription</string>
     <string name="price_base">PRICE L.E.</string>
     <string name="proceed_payment">Proceed to Payment</string>
-    <string name="availability">Availabililty: 4</string>
+    <string name="availability">Availabililty</string>
     <string name="minus_sign">–</string>
     <string name="plus_sign">+</string>
     <string name="number_placeholder">0</string>

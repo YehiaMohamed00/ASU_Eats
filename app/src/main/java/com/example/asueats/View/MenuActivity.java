@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -25,11 +26,14 @@ public class MenuActivity extends AppCompatActivity implements MenuAdapter.OnDis
     LinearLayoutManager layoutManager;
     List<Dish> dishList;
     MenuAdapter menuAdapter;
+    Button mv_back_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_view);
+
+        mv_back_btn = findViewById(R.id.mv_back_btn);
 
         // initData
         dishList = new ArrayList<>();
@@ -70,5 +74,16 @@ public class MenuActivity extends AppCompatActivity implements MenuAdapter.OnDis
         }else {
             Toast.makeText(this, "Dish not available", Toast.LENGTH_LONG).show();
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mv_back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 }

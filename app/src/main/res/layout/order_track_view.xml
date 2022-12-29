@@ -40,6 +40,7 @@
                 android:id="@+id/otv_orderplaced_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/text_color"
                 android:layout_weight="1"
                 android:maxEms="4"
                 android:textSize="16sp"
@@ -51,7 +52,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:maxEms="4"
-                android:paddingStart="7dp"
+                android:textColor="@color/text_color"
                 android:text="@string/in_package"
                 android:textSize="16sp" />
 
@@ -61,8 +62,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:maxEms="4"
-                android:textSize="16sp"
-                android:text="@string/on_way" />
+                android:paddingStart="2dp"
+                android:text="@string/on_way"
+                android:textColor="@color/text_color"
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/otv_beingserved_tv"
@@ -71,6 +74,7 @@
                 android:layout_weight="1"
                 android:maxEms="4"
                 android:textSize="16sp"
+                android:textColor="@color/text_color"
                 android:text="@string/being_served" />
         </LinearLayout>
 
