@@ -20,6 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -45,6 +46,7 @@ public class OrderHistoryActivity extends AppCompatActivity implements OrderAdap
         recyclerView = findViewById(R.id.am_recyclerview);
         layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(RecyclerView.VERTICAL);
+//        Collections.reverse(ordersList);
         recyclerView.setLayoutManager(layoutManager);
         orderAdapter = new OrderAdapter(ordersList, this);
         recyclerView.setAdapter(orderAdapter);
