@@ -83,27 +83,42 @@ public class CartActivity extends AppCompatActivity implements CartAdapter.OnDis
                 }
 
                 calendar = Calendar.getInstance();
-                int hour = calendar.get(Calendar.HOUR_OF_DAY);
+                int currHour = calendar.get(Calendar.HOUR_OF_DAY);
                 if (timeSelected.equals("12AM")) {
                     //                        Toast.makeText(this, "Please Select a Valid Period", Toast.LENGTH_SHORT).show();
-                    isAcceptablePeriod = hour <= 10;
+                    isAcceptablePeriod = currHour <= 10;
                 } else {
                     //                        Toast.makeText(this, "Please Select a Valid Period", Toast.LENGTH_SHORT).show();
-                    isAcceptablePeriod = hour <= 13;
+                    isAcceptablePeriod = currHour <= 13;
                 }
 
-                if (isAcceptablePeriod){
+                if (true){
                     for (Dish d: RestaurantsActivity.cartList){
                         totalPrice += d.getDishPrice();
                     }
                     if (totalPrice != 0){
                         String orderID = UUID.randomUUID().toString();
                         String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                        String orderStatus = "Placed";
+                        String orderStatus = "placed";
                         String orderGate = gateSelected;
                         String orderTimePeriod = timeSelected;
+                        int currMin = calendar.get(Calendar.HOUR_OF_DAY);
+                        String hour = "" + currHour, minute = "" + currMin;
+                        String second = "00";
+                        if(currHour < 10){
+                            hour = "0" + currHour;
+                        } else if(currMin < 10){
+                            minute = "0" + currMin;
+                        }
+                        String orderDate = hour + ":" + minute + ":" + second + " "
+                                + calendar.get(Calendar.DAY_OF_MONTH)
+                                + "/" + calendar.get(Calendar.MONTH)
+                                + "/" + calendar.get(Calendar.YEAR);
+//                        String orderDate = calendar.get(Calendar.LONG_FORMAT) + "";
+
+
                         // # Creating Order Object
-                        Order order = new Order(orderID, userID, orderStatus, orderGate, orderTimePeriod, totalPrice, RestaurantsActivity.cartList);
+                        Order order = new Order(orderID, userID, orderDate, orderStatus, orderGate, orderTimePeriod, totalPrice, RestaurantsActivity.cartList);
                         // # Adding Order to Firebase
                         FirebaseDatabase.getInstance().getReference("orders").child(userID).child(orderID).setValue(order);
                         RestaurantsActivity.cartList.clear();
