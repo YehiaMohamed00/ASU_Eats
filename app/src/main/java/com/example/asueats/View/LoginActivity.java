@@ -152,19 +152,6 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.makeText(LoginActivity.this, "Login error",Toast.LENGTH_LONG).show();
                         }
                     });
-//                    new Thread(() -> {
-//                        Toast.makeText(getApplicationContext(),"the thread runs", Toast.LENGTH_LONG).show();
-//                        User user = mUserViewModel.getUser(email, password);
-//                        if(user == null){
-//                            runOnUiThread(() -> Toast.makeText(getApplicationContext(),"Invalid Credentials", Toast.LENGTH_LONG).show());
-//                        }else{
-//                            Intent i = new Intent(getApplicationContext(), RestaurantsActivity.class);
-//                            i.putExtra("email", email);
-//                            i.putExtra("password", password);
-//                            Log.d("notice", email + "  " + password);
-//                            startActivity(i);
-//                        }
-//                    }).start();
                 }
                 else{
                     Toast.makeText(getApplicationContext(),"invalid Email format", Toast.LENGTH_LONG).show();

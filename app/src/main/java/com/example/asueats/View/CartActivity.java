@@ -18,6 +18,7 @@ import com.example.asueats.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.time.Instant;
 import java.util.Calendar;
 import java.util.List;
 import java.util.UUID;
@@ -33,6 +34,7 @@ public class CartActivity extends AppCompatActivity implements CartAdapter.OnDis
     Boolean isAcceptablePeriod = false;
     String timeSelected = "";
     String gateSelected = "";
+    static long counter = Long.MAX_VALUE;
 
     Calendar calendar;
 
@@ -99,18 +101,21 @@ public class CartActivity extends AppCompatActivity implements CartAdapter.OnDis
                     }
                     if (totalPrice != 0){
                         String orderID = UUID.randomUUID().toString();
+//                        String orderID = generateOrderID();
                         String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
                         String orderStatus = "placed";
                         String orderGate = gateSelected;
                         String orderTimePeriod = timeSelected;
                         int currMin = calendar.get(Calendar.MINUTE);
+                        int currSec = calendar.get(Calendar.SECOND);
                         String hour = "" + currHour, minute = "" + currMin;
-                        String second = "00";
+                        String second = "" + currSec;
                         if(currHour < 10){
                             hour = "0" + currHour;
                         } else if(currMin < 10){
                             minute = "0" + currMin;
-                        }
+                        } else if(currSec < 10){
+                            second = "0" + currSec;
                         String orderDate = hour + ":" + minute + ":" + second + " "
                                 + calendar.get(Calendar.DAY_OF_MONTH)
                                 + "/" + calendar.get(Calendar.MONTH)
@@ -135,12 +140,11 @@ public class CartActivity extends AppCompatActivity implements CartAdapter.OnDis
             }
         });
 
-        cv_back_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+        cv_back_btn.setOnClickListener(view -> finish());
+    }
+
+    private String generateOrderID() {
+        return String.valueOf(counter--);
     }
 
     @Override
