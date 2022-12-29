@@ -22,10 +22,10 @@
     <string name="cart_add">Add to Cart</string>
     <string name="logo">logo</string>
     <string name="tracking_img">tracking image</string>
-    <string name="order_placed">Order placed</string>
-    <string name="in_package">  In Package</string>
+    <string name="order_placed">Order placed ✓</string>
+    <string name="in_package">In Package</string>
     <string name="on_way">On the Way</string>
-    <string name="being_served">Being Served</string>
+    <string name="being_served">At your door</string>
     <string name="order_details_title">Order Details</string>
     <string name="order_details">orderdetails_orderdetails_orderdetails_orderdetails_orderdetails_orderdetails_orderdetails_orderdetails_orderdetails_orderdetails_orderdetails_orderdetails_orderdetails_orderdetails_orderdetails_orderdetails_orderdetails_orderdetails_orderdetails_orderdetails_</string>
     <string name="total_cost">Total Cost</string>

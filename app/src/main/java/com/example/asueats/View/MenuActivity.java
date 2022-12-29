@@ -79,6 +79,7 @@ public class MenuActivity extends AppCompatActivity implements MenuAdapter.OnDis
     @Override
     protected void onResume() {
         super.onResume();
+        menuAdapter.notifyDataSetChanged();
         mv_back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

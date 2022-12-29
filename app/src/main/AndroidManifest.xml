@@ -15,6 +15,20 @@
         android:theme="@style/Theme.ASUEats"
         tools:targetApi="31">
         <activity
+            android:name=".View.OrderTrackerActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".View.OrderHistoryActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".View.DishAddActivity"
             android:exported="false">
             <meta-data
@@ -23,13 +37,6 @@
         </activity>
         <activity
             android:name=".View.MenuActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".View.PaymentActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

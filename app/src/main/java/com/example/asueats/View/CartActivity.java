@@ -63,6 +63,7 @@ public class CartActivity extends AppCompatActivity implements CartAdapter.OnDis
     @Override
     protected void onResume() {
         super.onResume();
+        cartAdapter.notifyDataSetChanged();
         cv_topayment_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -92,7 +93,9 @@ public class CartActivity extends AppCompatActivity implements CartAdapter.OnDis
                     isAcceptablePeriod = currHour <= 13;
                 }
 
-                if (true){
+                // TODO: Delete next statement this is only for testing
+                isAcceptablePeriod = true;
+                if (isAcceptablePeriod){
                     for (Dish d: RestaurantsActivity.cartList){
                         totalPrice += d.getDishPrice();
                     }
@@ -102,7 +105,7 @@ public class CartActivity extends AppCompatActivity implements CartAdapter.OnDis
                         String orderStatus = "placed";
                         String orderGate = gateSelected;
                         String orderTimePeriod = timeSelected;
-                        int currMin = calendar.get(Calendar.HOUR_OF_DAY);
+                        int currMin = calendar.get(Calendar.MINUTE);
                         String hour = "" + currHour, minute = "" + currMin;
                         String second = "00";
                         if(currHour < 10){
@@ -117,14 +120,16 @@ public class CartActivity extends AppCompatActivity implements CartAdapter.OnDis
 //                        String orderDate = calendar.get(Calendar.LONG_FORMAT) + "";
 
 
-                        // # Creating Order Object
+                        // Creating Order Object
                         Order order = new Order(orderID, userID, orderDate, orderStatus, orderGate, orderTimePeriod, totalPrice, RestaurantsActivity.cartList);
-                        // # Adding Order to Firebase
+                        // Adding Order to Firebase
                         FirebaseDatabase.getInstance().getReference("orders").child(userID).child(orderID).setValue(order);
+                        Toast.makeText(CartActivity.this, "Order Successfully placed", Toast.LENGTH_SHORT).show();
                         RestaurantsActivity.cartList.clear();
                         cartAdapter.notifyDataSetChanged();
-                        Intent i = new Intent(getApplicationContext(), PaymentActivity.class);
-                        startActivity(i);
+                        finish();
+//                        Intent i = new Intent(getApplicationContext(), PaymentActivity.class);
+//                        startActivity(i);
                     }
                 } else {
                     Toast.makeText(CartActivity.this, "you can't order now, sorry", Toast.LENGTH_SHORT).show();

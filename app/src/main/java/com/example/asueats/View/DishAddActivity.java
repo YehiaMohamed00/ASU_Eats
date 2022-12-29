@@ -46,8 +46,7 @@ public class DishAddActivity extends AppCompatActivity {
         dishDescription.setText(dish.getDishDescription());
         String strPrice = ((Double)dish.getDishPrice()) + " EGP";
         dishPrice.setText(strPrice);
-        String strAvailability = "Availability: " + dish.getDishAvailability().toString();
-        dishAvailability.setText(strAvailability);
+        dishAvailability.setText(dish.getDishAvailability().toString());
 
         plusBtn.setOnClickListener(view -> {
             if(dish.getDishAvailability().equals("Available")){

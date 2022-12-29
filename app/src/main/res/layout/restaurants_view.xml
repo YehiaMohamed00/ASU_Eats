@@ -37,6 +37,16 @@
             />
 
         <Button
+            android:id="@+id/rv_orderHistory_btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/base_button_style"
+            android:text="Order History"
+            android:textColor="@color/white"
+            />
+
+        <Button
             android:id="@+id/rv_account_btn"
             android:layout_width="0dp"
             android:layout_height="match_parent"

@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 
 import com.example.asueats.Model.Dish;
@@ -29,7 +30,7 @@ import java.util.List;
 public class RestaurantsActivity extends AppCompatActivity implements RestaurantAdapter.OnRestaurantListener {
 
     public static List<Dish> cartList;
-    Button rv_cart_btn, rv_account_btn;
+    Button rv_cart_btn, rv_account_btn, rv_orderHistory_btn;
     RecyclerView recyclerView;
     LinearLayoutManager layoutManager;
 //    List<Restaurant>restaurantList;
@@ -50,6 +51,7 @@ public class RestaurantsActivity extends AppCompatActivity implements Restaurant
         setContentView(R.layout.restaurants_view);
         rv_cart_btn = findViewById(R.id.rv_cart_btn);
         rv_account_btn = findViewById(R.id.rv_account_btn);
+        rv_orderHistory_btn = findViewById(R.id.rv_orderHistory_btn);
 
 //        restaurantList = MainActivity.restaurantList;
 
@@ -64,68 +66,6 @@ public class RestaurantsActivity extends AppCompatActivity implements Restaurant
         recyclerView.setAdapter(restaurantAdapter);
         restaurantAdapter.notifyDataSetChanged();
 
-//        FirebaseDatabase database = FirebaseDatabase.getInstance();
-//        DatabaseReference dishesRef = database.getReference("dishes");
-//        DatabaseReference restRef = database.getReference("restaurants");
-
-//        /////////////////////
-//        dishList1 = new ArrayList<>();
-//        dishList1.add(new Dish(R.drawable.foodcorner, "negresco",
-//                "negresco macaroni",15, 3));
-//        dishList1.add(new Dish(R.drawable.momen, "akl 2", "desc 2", 20, 4));
-//
-//        dishList1.add(new Dish(R.drawable.foodcorner, "negresco",
-//                "alfredo macaroni",40, 1));
-//        dishList1.add(new Dish(R.drawable.momen, "akl 3", "desc 5", 105, 0));
-//
-//
-//        Log.d("dishList1", dishList1.get(0).getDishName());
-//        //////////////////////
-//
-//        /////////////////////
-//        dishList2 = new ArrayList<>();
-//        dishList2.add(new Dish(R.drawable.foodcorner, "negresco2",
-//                "negresco macaroni",15, 3));
-//        dishList2.add(new Dish(R.drawable.momen, "akl 2", "desc 2", 20, 4));
-//
-//        dishList2.add(new Dish(R.drawable.momen, "akl 3", "desc 5", 105, 0));
-//
-//        dishList2.add(new Dish(R.drawable.foodcorner, "negresco",
-//                "alfredo macaroni",40, 1));
-//        dishList2.add(new Dish(R.drawable.momen, "akl 3", "desc 5", 105, 0));
-//        //////////////////////
-//
-//        /////////////////////
-//        dishList3 = new ArrayList<>();
-//        dishList3.add(new Dish(R.drawable.foodcorner, "negresco3",
-//                "negresco macaroni",15, 3));
-//        dishList3.add(new Dish(R.drawable.momen, "akl 2", "desc 2", 20, 4));
-//
-//        dishList3.add(new Dish(R.drawable.foodcorner, "negresco",
-//                "alfredo macaroni",40, 1));
-//        dishList3.add(new Dish(R.drawable.momen, "akl 3", "desc 5", 105, 0));
-//
-//        dishList3.add(new Dish(R.drawable.foodcorner, "negresco",
-//                "alfredo macaroni",40, 1));
-//        dishList3.add(new Dish(R.drawable.momen, "akl 3", "desc 5", 105, 0));
-//        //////////////////////
-
-//        restaurantList.add(new Restaurant(R.drawable.foodcorner, "Food Corner",
-//                "Pasta", "$$", dishList1));
-//        restaurantList.add(new Restaurant(R.drawable.momen, "Momen", "Sandwich", "$$$", dishList2));
-//
-//        restaurantList.add(new Restaurant(R.drawable.foodcorner, "City Crepe",
-//                "Crepe", "$",dishList3));
-//        restaurantList.add(new Restaurant(R.drawable.momen, "Pizza King", "Pizza", "$$", dishList1));
-//
-//        Log.d("forme", restaurantList.get(0).getDishList().get(0).getDishName());
-
-
-        // initRecyclerView
-
-
-
-//        Log.d("yehiaaDebug", restaurantList.toString());
     }
 
     @Override
@@ -141,6 +81,15 @@ public class RestaurantsActivity extends AppCompatActivity implements Restaurant
     @Override
     protected void onResume() {
         super.onResume();
+
+        restaurantAdapter.notifyDataSetChanged();
+        rv_orderHistory_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), OrderHistoryActivity.class);
+                startActivity(i);
+            }
+        });
 
         rv_cart_btn.setOnClickListener(view -> {
             Intent i = new Intent(getApplicationContext(), CartActivity.class);
