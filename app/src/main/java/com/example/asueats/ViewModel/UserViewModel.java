@@ -12,20 +12,14 @@ import java.util.List;
 public class UserViewModel extends AndroidViewModel {
     private UserRepository mRepository;
     private final LiveData<List<User>> mAllUsers;
-    //private final LiveData<User> user;
 
     public UserViewModel (Application application) {
         super(application);
         mRepository = new UserRepository(application);
         mAllUsers = mRepository.getAllUsers();
-        //user = mRepository.getUser("yehia@test.com");
     }
 
     public LiveData<List<User>> getAllUsers() { return mAllUsers; }
-
-//    public LiveData<User> getUser(String email, String password){
-//        return mRepository.getUser(email, password);
-//    }
 
     public User getUser(String email, String password){
         return mRepository.getUser(email, password);

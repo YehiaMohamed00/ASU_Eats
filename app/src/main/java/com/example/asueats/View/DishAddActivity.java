@@ -41,7 +41,6 @@ public class DishAddActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getBundleExtra("dish");
         dish = (Dish)bundle.getSerializable("dishSelected");
         Glide.with(dishImg.getContext()).load(dish.getDishImg()).into(dishImg);
-//        dishImg.setImageResource(dish.getDishImg());
         dishName.setText(dish.getDishName());
         dishDescription.setText(dish.getDishDescription());
         String strPrice = ((Double)dish.getDishPrice()) + " EGP";
@@ -50,18 +49,14 @@ public class DishAddActivity extends AppCompatActivity {
 
         plusBtn.setOnClickListener(view -> {
             if(dish.getDishAvailability().equals("Available")){
-//                dish.setDishAvailability(newAvailability);
-//                String strAvailability1 = "Availability: " + newAvailability;
-//                dishAvailability.setText(strAvailability1);
-                // TODO : Add new item to cartlist
                 RestaurantsActivity.cartList.add(new Dish(dish));
                 Log.d("yehiaaDebug = cartlist","added ->" + RestaurantsActivity.cartList.toString());
+                // TODO : Handle the number in the edittext when re-accessed
                 amount.setText(String.valueOf(Integer.parseInt(amount.getText().toString())+1));
             }
         });
 
         minusBtn.setOnClickListener(view -> {
-            // TODO: remove from cartlist
             for (Dish dishh: RestaurantsActivity.cartList){
                 int i = 0;
                 if(dishh.getDishName().equals(dish.getDishName())){
@@ -71,8 +66,6 @@ public class DishAddActivity extends AppCompatActivity {
                 }
                 i++;
             }
-//            RestaurantsActivity.cartList.remove();
-//            amount.setText(String.valueOf(Integer.parseInt(amount.getText().toString())-1));
         });
 
         toCartBtn.setOnClickListener(view -> {

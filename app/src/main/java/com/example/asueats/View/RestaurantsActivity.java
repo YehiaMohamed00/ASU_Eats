@@ -33,17 +33,9 @@ public class RestaurantsActivity extends AppCompatActivity implements Restaurant
     Button rv_cart_btn, rv_account_btn, rv_orderHistory_btn;
     RecyclerView recyclerView;
     LinearLayoutManager layoutManager;
-//    List<Restaurant>restaurantList;
     RestaurantAdapter restaurantAdapter;
-
-//    List<Dish>dishList1;
-//    List<Dish>dishList2;
-//    List<Dish>dishList3;
-
     FirebaseAuth mAuth;
-    Boolean updated = false;
-//    public List<Restaurant> restaurantList;
-//    List<Dish> dishList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +44,6 @@ public class RestaurantsActivity extends AppCompatActivity implements Restaurant
         rv_cart_btn = findViewById(R.id.rv_cart_btn);
         rv_account_btn = findViewById(R.id.rv_account_btn);
         rv_orderHistory_btn = findViewById(R.id.rv_orderHistory_btn);
-
-//        restaurantList = MainActivity.restaurantList;
 
         mAuth = FirebaseAuth.getInstance();
         cartList = new ArrayList<>();
@@ -83,12 +73,9 @@ public class RestaurantsActivity extends AppCompatActivity implements Restaurant
         super.onResume();
 
         restaurantAdapter.notifyDataSetChanged();
-        rv_orderHistory_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), OrderHistoryActivity.class);
-                startActivity(i);
-            }
+        rv_orderHistory_btn.setOnClickListener(view -> {
+            Intent i = new Intent(getApplicationContext(), OrderHistoryActivity.class);
+            startActivity(i);
         });
 
         rv_cart_btn.setOnClickListener(view -> {
@@ -109,14 +96,10 @@ public class RestaurantsActivity extends AppCompatActivity implements Restaurant
 
     @Override
     public void onRestClick(int position) {
-//        Log.d("yehiaaDebug = rest ", MainActivity.restaurantList.get(position).toString());
         Intent i = new Intent(this, MenuActivity.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable("restSelected", MainActivity.restaurantList.get(position));
-
-//        Log.d("forMe", restaurantList.get(position).getDishList().toString());
         i.putExtra("restaurant", bundle);
-//        Log.d("works?", ((Restaurant)bundle.getSerializable("restSelected")).getRestName());
         startActivity(i);
     }
 }

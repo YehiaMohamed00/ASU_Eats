@@ -36,7 +36,6 @@ public class OrderTrackerActivity extends AppCompatActivity {
                 makeDeliveredGreen();
                 break;
         }
-
     }
 
     private void makeDeliveredGreen() {

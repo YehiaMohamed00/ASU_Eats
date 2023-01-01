@@ -13,9 +13,6 @@ public interface UserDao {
     @Query("SELECT * FROM user_table ORDER BY email ASC")
     LiveData<List<User>> getAllUsersAlphabetized();
 
-//    @Query("SELECT * FROM user_table WHERE email=:email AND password=:password")
-//    LiveData<User> getUser(String email, String password);
-
     @Query("SELECT * FROM user_table WHERE email=:email AND password=:password")
     User getUser(String email, String password);
 

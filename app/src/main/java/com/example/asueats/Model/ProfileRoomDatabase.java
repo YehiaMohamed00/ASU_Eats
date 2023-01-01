@@ -73,7 +73,6 @@ public abstract class ProfileRoomDatabase extends RoomDatabase {
                     }else{
 
                         Log.d("yehiaDebug", "registration error");
-//                            Log.d("yehiaDebug", "registration error" + task.getException().getMessage());
                     }
                 });
     }

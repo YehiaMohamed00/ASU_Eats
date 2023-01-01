@@ -82,7 +82,6 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-//                restList = restaurantList;
         dishList = new ArrayList<>();
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -94,7 +93,6 @@ public class LoginActivity extends AppCompatActivity {
                 int i = 0;
                 for (DataSnapshot sp: snapshot.getChildren()){
                     for (DataSnapshot so: sp.getChildren()){
-//                        for (DataSnapshot sq: so.getChildren()){
                         HashMap dish = (HashMap)so.getValue();
                         double tmp = Double.parseDouble(dish.get("price").toString());
                         if(dish.get("availability").toString().equals("Available")){
@@ -106,7 +104,6 @@ public class LoginActivity extends AppCompatActivity {
                                     "placeholder",tmp
                                     , "N/A"));
                         }
-//                        }
                     }
                     MainActivity.restaurantList.get(i).setDishList(dishList);
                     Log.d("yehiaaDebug = dish", MainActivity.restaurantList.get(i).toString());
@@ -145,7 +142,6 @@ public class LoginActivity extends AppCompatActivity {
                             // TODO: get user cartlist
                             i.putExtra("email", email);
                             i.putExtra("password", password);
-//                            Log.d("notice", email + "  " + password);
                             startActivity(i);
                             finish();
                         }else{
@@ -160,11 +156,6 @@ public class LoginActivity extends AppCompatActivity {
             else{
                 Toast.makeText(getApplicationContext(),"password can't be empty", Toast.LENGTH_LONG).show();
             }
-
-//                LiveData<User> tmp = mUserViewModel.getUser(email);
-//                Toast.makeText(getApplicationContext(),tmp. + "  " + tmp.getPassword(), Toast.LENGTH_LONG).show();
-
         });
-
     }
 }

@@ -38,19 +38,6 @@ public class SignupActivity extends AppCompatActivity {
 
         mUserViewModel = new ViewModelProvider(this).get(UserViewModel.class);
         mAuth = FirebaseAuth.getInstance();
-//        mUserViewModel.getAllUsers().observe(this, user -> {
-//            // Update the cached copy of the words in the adapter.
-//            //adapter.submitList(words);
-//            if (user == null){
-//                //lv_login_btn.callOnClick();
-//                Toast.makeText(
-//                        getApplicationContext(),
-//                        "User not registered",
-//                        Toast.LENGTH_LONG).show();
-//            }else{
-//                Toast.makeText(getApplicationContext(),"tmm", Toast.LENGTH_LONG).show();
-//            }
-//        });
     }
 
     @Override
@@ -68,9 +55,7 @@ public class SignupActivity extends AppCompatActivity {
                             Toast.makeText(SignupActivity.this, "Registered Successfully",Toast.LENGTH_LONG).show();
                             mUserViewModel.insert(new User(email, pass));
                         }else{
-//                            Toast.makeText(SignupActivity.this, "Registration error" + task.getException().getMessage(),Toast.LENGTH_LONG).show();
                             Log.d("yehiaDebug","Registration error");
-//                            Log.d("yehiaDebug",task.getException().getMessage());
                         }
                     });
                     finish();

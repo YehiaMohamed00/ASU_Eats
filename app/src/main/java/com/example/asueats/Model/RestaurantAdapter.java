@@ -41,7 +41,6 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Re
 
 
         Glide.with(holder.RVHrestImg.getContext()).load(restImg).into(holder.RVHrestImg);
-//        holder.RVHrestImg.setImageResource(restImg);
         holder.RVHrestName.setText(restName);
         String concatenated = restCousine + ", " + restPriceRange;
         holder.RVHrestCousineNrestPriceRange.setText(concatenated);

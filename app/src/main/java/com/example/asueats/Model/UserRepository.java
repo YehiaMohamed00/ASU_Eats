@@ -25,9 +25,6 @@ public class UserRepository {
         return mAllUsers;
     }
 
-//    public LiveData<User> getUser(String email) {
-//        return mUserDao.getUser(email);
-//    }
 
     public User getUser(String email, String password) {
         return mUserDao.getUser(email, password);

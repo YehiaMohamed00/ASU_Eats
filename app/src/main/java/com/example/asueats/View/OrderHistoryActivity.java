@@ -40,13 +40,10 @@ public class OrderHistoryActivity extends AppCompatActivity implements OrderAdap
         String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         DatabaseReference orderRef = database.getReference("orders").child(userID);
 
-
         ordersList = new ArrayList<>();
-
         recyclerView = findViewById(R.id.am_recyclerview);
         layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(RecyclerView.VERTICAL);
-//        Collections.reverse(ordersList);
         recyclerView.setLayoutManager(layoutManager);
         orderAdapter = new OrderAdapter(ordersList, this);
         recyclerView.setAdapter(orderAdapter);
@@ -55,14 +52,12 @@ public class OrderHistoryActivity extends AppCompatActivity implements OrderAdap
         orderRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                for (DataSnapshot sp: snapshot.getChildren()){
                     for (DataSnapshot so: snapshot.getChildren()){
                         HashMap order = (HashMap)so.getValue();
                         ordersList.add(new Order(order.get("orderID").toString(), order.get("userID").toString(),
                                 order.get("orderDate").toString(), order.get("orderStatus").toString(),
                                 order.get("orderGate").toString(), order.get("orderTimePeriod").toString(), Double.parseDouble(order.get("orderPrice").toString())));
                     }
-//                }
                 Log.d("yehiaaDebug = dish", ordersList.toString());
                 orderAdapter.notifyDataSetChanged();
             }

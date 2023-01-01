@@ -21,7 +21,6 @@ public class ProfileActivity extends AppCompatActivity {
     private UserViewModel mUserViewModel;
     FirebaseAuth mAuth;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,9 +35,6 @@ public class ProfileActivity extends AppCompatActivity {
         mUserViewModel = new ViewModelProvider(this).get(UserViewModel.class);
 
     }
-
-    // TODO
-    // Make way to update user's password
 
     @Override
     protected void onResume() {
@@ -69,13 +65,10 @@ public class ProfileActivity extends AppCompatActivity {
                             prv_firstname_et.setText(user.getFirstName());
                             prv_lastname_et.setText(user.getLastName());
                             prv_address_et.setText(user.getAddress());
-
                         });
                     }
             }).start();
         });
         new Handler().postDelayed(() -> prv_update_btn.callOnClick(), 800);
-
-
     }
 }

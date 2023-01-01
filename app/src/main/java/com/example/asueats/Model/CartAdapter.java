@@ -36,16 +36,11 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         String dishName = dishList.get(position).getDishName();
         String dishDescription = dishList.get(position).getDishDescription();
         Double dishPrice =  dishList.get(position).getDishPrice();
-//        String dishAvailability = dishList.get(position).getDishAvailability();
 
         Glide.with(holder.MVHdishImg.getContext()).load(dishImg).into(holder.MVHdishImg);
-//        holder.MVHdishImg.setImageResource(dishImg);
         holder.MVHdishName.setText(dishName);
-//        holder.MVHdishDescription.setText(dishDescription);
         String strPrice = dishPrice+  " EGP";
         holder.MVHdishPrice.setText(strPrice);
-//        String strAvailability = dishAvailability.toString();
-//        holder.MVHdishAvailability.setText(strAvailability);
     }
 
     @Override
@@ -64,9 +59,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
 
             MVHdishImg = itemView.findViewById(R.id.cri_dish_img);
             MVHdishName = itemView.findViewById(R.id.cri_dishname_tv);
-//            MVHdishDescription = itemView.findViewById(R.id.cri_description_tv);
             MVHdishPrice = itemView.findViewById(R.id.cri_price_tv);
-//            MVHdishAvailability = itemView.findViewById(R.id.mri_availability_tv);
             this.onDishListener = onDishListener;
             itemView.setOnClickListener(this);
         }

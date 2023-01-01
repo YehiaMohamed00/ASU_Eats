@@ -40,17 +40,6 @@ public class MenuActivity extends AppCompatActivity implements MenuAdapter.OnDis
         Bundle bundle = getIntent().getBundleExtra("restaurant");
         dishList = ((Restaurant)bundle.getSerializable("restSelected")).getDishList();
         Log.d("yehiaaDebug = Menu ", dishList.toString());
-//        dishList.add(new Dish(R.drawable.foodcorner, "negresco",
-//                "negresco macaroni",15, 3));
-//        dishList.add(new Dish(R.drawable.momen, "akl 2", "desc 2", 20, 4));
-//
-//        dishList.add(new Dish(R.drawable.foodcorner, "negresco",
-//                "alfredo macaroni",40, 1));
-//        dishList.add(new Dish(R.drawable.momen, "akl 3", "desc 5", 105, 0));
-//
-//        dishList.add(new Dish(R.drawable.foodcorner, "negresco",
-//                "alfredo macaroni",40, 1));
-//        dishList.add(new Dish(R.drawable.momen, "akl 3", "desc 5", 105, 0));
 
         // initRecyclerView
         recyclerView = findViewById(R.id.mv_recyclerview);
@@ -80,11 +69,6 @@ public class MenuActivity extends AppCompatActivity implements MenuAdapter.OnDis
     protected void onResume() {
         super.onResume();
         menuAdapter.notifyDataSetChanged();
-        mv_back_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+        mv_back_btn.setOnClickListener(view -> finish());
     }
 }

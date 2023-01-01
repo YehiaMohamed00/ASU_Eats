@@ -25,7 +25,6 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     public static List<Restaurant> restaurantList;
-//    public static List<Dish> dishList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,14 +40,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         restaurantList = new ArrayList<>();
-//        dishList = new ArrayList<>();
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference restRef = database.getReference("restaurants");
-//        DatabaseReference dishRef = database.getReference("dishes");
-
-
-
         restRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -58,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
                             rest.get("type").toString(), rest.get("range").toString()));
                     Log.d("yehiaaDebug", rest.get("name").toString());
                 }
-//                restaurantAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -66,6 +59,5 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
     }
 }
